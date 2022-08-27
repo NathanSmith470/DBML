@@ -1,5 +1,181 @@
-<h1>Dead by MemeLight</h1>
+<!DOCTYPE html>
+<html>
+<style>
+	table, th, td {
+		border: 20px solid black
+	}
+	h1{
+		font-size: 15;
+	}
+	body {
+		background-color: black;
+		color: white;
+	}
+</style>
+<h1>DEAD BY MEMELIGHT</h1>
+<h3>Shamelessly Copied Dead by Daylight Customs Randomizer</h3>
 
-<img src="meg.png">
+<script>
+	const survivors = ["Meg Thomas","Dwight Fairfield","Claudette Morel","Jake Park","Nea Karlsson","Laurie Strode","Ace Visconti","Bill Overbeck","Feng Min","David King","Quentin Smith","David Tapp","Kate Davidson","Adam Francis","Jeff Johansen","Jane Romero","Ash Williams","Nancy Wheeler","Steve Harrington","Yui Kimura","Zarina Kassir","Cheryl Mason","Felix Richter","Elodie Rakoto","Yun-Jin Lee","Jill Valentine","Leon Kennedy","Mikaela Reid","Jonah Vasquez","Yoichi Asakawa","Haddie Kaur"];
+	const perks = ["Ace In The Hole","Adrenaline","Aftercare","Alert","Any Means Necessary","Appraisal","Autodidact","Balanced Landing","Bite The Bullet","Blast Mine","Blood Pact","Boil Over","Bond","Boon: Circle Of Healing","Boon: Dark Theory","Boon: Exponential","Boon: Shadow Step","Borrowed Time","Botany Knowledge","Breakdown","Breakout","Buckle Up","Built To Last","Calm Spirit","Clairvoyance","Corrective Action","Counterforce","Dance With Me","Dark Sense","Dead Hard","Deception","Decisive Strike","Deja Vu","Deliverance","Desperate Measures","Detective's Hunch","Distortion","Diversion","Empathic Connection","Empathy","Fast Track","Flashbang","Flip Flop","For The People","Guardian","Head On","Hope","Inner Focus","Inner Healing","Iron Will","Kindred","Kinship","Leader","Left Behind","Lightweight","Lithe","Lucky Break","Mettle Of Man","No Mither","No One Left Behind","Object Of Obsession","Off The Record","Open Handed","Overcome","Overzealous","Parental Guidance","Pharmacy","Plunderer's Instinct","Poised","Power Struggle","Premonition","Prove Thyself","Quick & Quiet","Red Herring","Renewal","Repressed Alliance","Residual Manifest","Resilience","Resurgence","Rookie Spirit","Saboteur","Self Aware","Self Care","Self Perservation","Situational Awareness","Slippery Meat","Small Game","Smash Hit","Sole Survivor","Solidarity","Soul Guard","Spine Chill","Sprint Burst","Stakeout","Streetwise","Technician","Tenacity","This Is Not Happening","Unbreakable","Up the Ante","Urban Evasion","Vigil","Visionary","Wake Up!","We'll Make It","We're Gonna Live Forever","Windows Of Opportunity"];
+	const items = ["Flashlight","Key","Map","Toolbox","Medkit","Firecrackers","No Item"];
+	const offerings = ["Purple Offering","Green Offering","Yellow Offering","Brown Offering","No Offering"];
+	function pickSurvivor() {
+		var s;
+		s = Math.random()*(survivors.length);
+		document.getElementById("surv").innerHTML = survivors[Math.floor(s)];
+	}
+	function pickPerks() {
+		var p;
+		var pid;
+		var n_perks = [].concat(perks);
+		for (let i = 0; i <= 4; i++) {
+			p = Math.random()*(n_perks.length);
+			pid = "perk" + (i+1).toString();
+			document.getElementById(pid).innerHTML = n_perks[Math.floor(p)];
+			n_perks.pop(Math.floor(p));
+		}
+	}
+	function pickItem() {
+		var i;
+		i = Math.random()*(items.length);
+		document.getElementById("item").innerHTML = items[Math.floor(i)];
+	}
+	function pickOffering() {
+		var o;
+		o = Math.random()*(offerings.length);
+		document.getElementById("offer").innerHTML = offerings[Math.floor(o)];
+	}
+	function pickAll() {
+		pickSurvivor();
+		pickItem();
+		pickOffering();
+		pickPerks();
+	}
 
-<p>192.168.54.103</p>
+	const killers = ["Trapper","Wraith","Hillbilly","Nurse","The Shape","Hag","Doctor","Huntress","Cannibal","Nightmare","Pig","Clown","Spirit","Leigion","Plague","Ghostface","Demogorgon","Oni","Deathslinger","Executioner","Blight","Twins","Trickster","Nemesis","Cenobite","Artist","Onryo","Dredge"];
+	const perksk = ["A Nurse's Calling","Agitation","Bamboozle","BBQ & Chili","Beast of Prey","Bitter Murmur","Blood Echo","Blood Warden","Bloodhound","Brutal Strength","Call of Brine","Claustrophobia","Corrupt Intervention","Caulrophobia","Coup De Grace","Dark Devotion","Darkness Revealed","Dead Man's Switch","Deadlock","Deathbound","Deerstalker","Discordance","Dissolution","Distressing","Dragon's Grip","Dying Light","Enduring","Eruption","Fearmonger","Fire Up","Forced Penance","Franklin's Demise","Furtive Chase","Gearhead","Grim Embrace","Hangman's Trick","Hex: Blood Favor","Hex: Crowd Control","Hex: Devour Hope","Hex: Haunted Grounds","Hex: Huntress' Lullaby","Hex: No One Escapes Death","Hex: Pentimento","Hex: Plaything","Hex: Retribution","Hex: Ruin","Hex: Third Seal","Hex: Thrill of the Hunt","Hex: Undying","Hoarder","Hysteria","I'm All Ears","Infectious Fright","Insidious","Iron Grasp","Iron Maiden","Jolt","Knockout","Lethal Pursuer","Lightborn","Mad Grit","Make Your Choice","Merciless Storm","Monitor & Abuse","Nemesis","No Way Out","Oppression","Overcharge","Overwhelming Presence","Play With Your Food","Pop Goes The Weasel","Predator","Rancor","Remember Me","Save The Best For Last","Scourge Hook: Floods Of Rage","Scourge Hook: Gift of Pain","Scourge Hook: Monstrous Shrine","Scourge Hook: Pain Resonance","Septic Touch","Shadowborn","Shattered Hope","Sloppy Butcher","Spies From The Shadows","Spirit Fury","Starstruck","Stridor","Surveillance","Territorial Imperative","Thanatophobia","Thrilling Tremors","Tinkerer","Trail Of Torment","Unnerving Presence","Unrelenting","Whispers","Zanshin Tactics"];
+	const kitems = ["Iridescent","Purple","Green","Yellow","Brown"];
+
+	function pickKiller() {
+		var k;
+		k = Math.random()*(killers.length);
+		document.getElementById("killr").innerHTML = killers[Math.floor(k)];
+	}
+	function pickPerksKiller() {
+		var pk;
+		var kpid;
+		var k_perks = [].concat(perksk);
+		for (let j = 0; j <= 3; j++) {
+			pk = Math.random()*(k_perks.length);
+			kpid = "perk" + (j+1).toString() + "k";
+			document.getElementById(kpid).innerHTML = k_perks[Math.floor(pk)];
+			k_perks.pop(Math.floor(pk));
+		}
+	}
+	function pickAddons() {
+		var a;
+		var aid;
+		for (let l = 0; l <= 1; l++) {
+			a = Math.random()*(kitems.length);
+			aid = "addon" + (l+1).toString();
+			document.getElementById(aid).innerHTML = kitems[Math.floor(a)] + " Addon";
+		}
+	}
+	function pickOfferingK() {
+		var a;
+		var aid;
+		var b_items = [].concat(kitems);
+		b_items.pop(0);
+		a = Math.random()*(kitems.length);
+		document.getElementById("offerk").innerHTML = kitems[Math.floor(a)] + " Offering";
+	}
+	function pickAllKiller() {
+		pickKiller();
+		pickPerksKiller();
+		pickAddons();
+		pickOfferingK();
+	}
+</script>
+
+<p>by Nathan Smith</p>
+<hr>
+<h2>Randomize Survivor Loadout</h2>
+<table style="text-align:center">
+	<tr>
+		<td><button onclick="pickAll()">Randomize All</button></td>
+	</tr>
+	<tr>
+		<td><button onclick="pickSurvivor()">Randomize Survivor</button></td>
+		<td><button onclick="pickPerks()">Randomize Perks</button></td>
+		<td><button onclick="pickItem()">Randomize Item</button></td>
+		<td><button onclick="pickOffering()">Randomize Offering</button></td>
+	</tr>
+</table>
+
+<hr>
+<h2>Survivor Loadout</h2>
+
+<table style="text-align:center">
+	<tr>
+		<th> Survivor </th>
+		<th> Perk 1 </th>
+		<th> Perk 2 </th>
+		<th> Perk 3 </th>
+		<th> Perk 4 </th>
+		<th> Item </th>
+		<th> Offering </th>
+	</tr>
+	<tr>
+		<td id="surv"></td>
+		<td id="perk1"></td>
+		<td id="perk2"></td>
+		<td id="perk3"></td>
+		<td id="perk4"></td>
+		<td id="item"></td>
+		<td id="offer"></td>
+	</tr>
+</table>
+
+<hr>
+<hr>
+<h2>Randomize Killer Loadout</h2>
+<table style="text-align:center">
+	<tr>
+		<td><button onclick="pickAllKiller()">Randomize All</button></td>
+	</tr>
+	<tr>
+		<td><button onclick="pickKiller()">Randomize Killer</button></td>
+		<td><button onclick="pickPerksKiller()">Randomize Perks</button></td>
+		<td><button onclick="pickAddons()">Randomize Addons</button></td>
+		<td><button onclick="pickOfferingK()">Randomize Offering</button></td>
+	</tr>
+</table>
+
+<hr>
+<h2>Killer Loadout</h2>
+
+<table style="text-align:center">
+	<tr>
+		<th> Killer </th>
+		<th> Perk 1 </th>
+		<th> Perk 2 </th>
+		<th> Perk 3 </th>
+		<th> Perk 4 </th>
+		<th> Addon 1</th>
+		<th> Addon 2</th>
+		<th> Offering </th>
+	</tr>
+	<tr>
+		<td id="killr"></td>
+		<td id="perk1k"></td>
+		<td id="perk2k"></td>
+		<td id="perk3k"></td>
+		<td id="perk4k"></td>
+		<td id="addon1"></td>
+		<td id="addon2"></td>
+		<td id="offerk"></td>
+	</tr>
+</table>
+
+</html>
